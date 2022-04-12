@@ -41,8 +41,9 @@ console.log(`
 
 // Eliminar 'Peugeot'
 marcas.splice(index, 1);
+console.log(marcas)
 
-// Eliminar 'Volkswagen' y su elemento al lado
+// Eliminar 'Volkswagen' y su elemento de al lado
 let pos = marcas.indexOf('Volkswagen')
 marcas.splice(pos, 2);
 
