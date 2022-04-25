@@ -24,7 +24,3 @@ function mostrar_hipotenusa(){
     // Mostrar la respuesta
     document.getElementById('h_resultado').textContent = `La hipotenusa es ${respuesta}`
 }
-
-const btn_mostrar = document.getElementById('btn_mostrar')
-
-btn_mostrar.addEventListener('click', mostrar_hipotenusa)
