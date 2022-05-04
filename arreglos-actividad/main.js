@@ -1,9 +1,9 @@
 let lenguajes = ["Python", "JavaScript", "Csharp", "C++" , "Java" , "PHP" , "Ruby"]
 
 function imprimir(){
-    let len_lenguajes = lenguajes.length;
-    let ult_elemento = lenguajes[len_lenguajes-1];
-    let ter_elemento = lenguajes[2]
+    const len_lenguajes = lenguajes.length;
+    const ult_elemento = lenguajes[len_lenguajes-1];
+    const ter_elemento = lenguajes[2]
 
     document.getElementById('p_array').textContent = `
         Longitud del array: ${len_lenguajes}
@@ -24,7 +24,9 @@ lenguajes.shift()
 
 lenguajes.unshift('Kotlin')
 
-lenguajes.splice(4,2)
+const java_index = lenguajes.indexOf('Java');
+
+lenguajes.splice(java_index,2)
 
 console.log(lenguajes)
 
