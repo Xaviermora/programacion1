@@ -29,6 +29,3 @@ const java_index = lenguajes.indexOf('Java');
 lenguajes.splice(java_index,2)
 
 console.log(lenguajes)
-
-imprimir()
-recorrer_array()
