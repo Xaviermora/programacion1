@@ -29,7 +29,6 @@ const recorrer = async () => {
     publicaciones.forEach(element => {
         console.log(element.title)
     });
-
 }
 
 const boton = document.getElementById('btn_ejecutar')
