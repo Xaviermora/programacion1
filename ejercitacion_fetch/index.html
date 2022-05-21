@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercitación fetch</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Ejercitación fetch</a>
+        </div>
+    </nav>
+
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <h3>Criptomonedas</h3>
+                
+                <table class="table table-dark table-striped mt-3 text-center">
+                    <thead>
+                        <tr>
+                            <th>Imagen</th>
+                            <th>Nombre</th>
+                            <th>Simbolo</th>
+                            <th>Precio actual</th>
+                            <th>Cambio de precio en 24 hs</th>
+                            <th>Volumen total</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tbl_body">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
