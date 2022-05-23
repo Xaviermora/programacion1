@@ -14,7 +14,7 @@ const productos = async (categoria) => {
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">${producto.title}</h5>
                         <p class="card-text fw-bolder">$${producto.price}</p>
-                        <a href="#" class="btn btn-primary mt-auto w-50">Comprar</a>
+                        <a href="#" class="btn btn-primary mt-auto col-lg-6 col-md-8">Comprar</a>
                     </div>
                 </div>
             </div>
