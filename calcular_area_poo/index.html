@@ -14,7 +14,7 @@
         </div>
     </nav>
 
-    <div class="container mt-3">
+    <div class="container my-3">
         <div class="row">
             <div class="col-lg-6 mx-auto">
                 <div class="mb-3">
@@ -55,13 +55,34 @@
 
                 <button id="btn_calc_rect" class="btn btn-info">Calcular</button>
 
-                <h4 id="resultado_rect"></h4>
+                <h4 id="resultado_rect" class="mt-3"></h4>
             </div>
         </div>
 
-        <div class="row">
+        <div class="row mt-5">
             <div class="col-lg-6 mx-auto">
+                <div class="mb-3">
+                    <h4>Calcular area de un Trapecio</h4>
+                </div>
 
+                <div class="mb-3">
+                    <label class="form-label">Base Mayor</label>
+                    <input id="inp_b_mayor" class="form-control" type="number">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Base Menor</label>
+                    <input id="inp_b_menor" class="form-control" type="number">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Altura</label>
+                    <input id="inp_a_trap" class="form-control" type="number">
+                </div>
+
+                <button id="btn_calc_trap" class="btn btn-info">Calcular</button>
+
+                <h4 id="resultado_trap" class="mt-3"></h4>
             </div>
         </div>
     </div>

@@ -6,6 +6,7 @@ export default class Rectangulo{
 
     calcular_area(){
         const resultado = this.base * this.altura
-        console.log(resultado)
+        
+        return resultado
     }
 }
