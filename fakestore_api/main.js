@@ -1,4 +1,12 @@
 const productos = async (categoria) => {
+    document.getElementById('productos').innerHTML = `
+        <div class="d-flex justify-content-center">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    `
+    
     const productos = await fetch(`https://fakestoreapi.com/products/category/${categoria}`)
 
     const datos_productos = await productos.json()
@@ -25,5 +33,3 @@ const productos = async (categoria) => {
     document.getElementById('titulo').innerHTML = datos_productos[0].category
     document.getElementById('productos').innerHTML = lista_productos.join('')
 }
-
-productos()
