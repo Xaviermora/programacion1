@@ -9,7 +9,7 @@ const productos = async (categoria) => {
         const card_producto = `
             <div class="col-lg-4 col-md-6 col-10 mb-4 mx-md-0 mx-auto">
                 <div class="card h-100 shadow">
-                    <img src="${producto.image}" class="card-img-top my-2 mx-auto" alt="Imagen del producto" style="height: 17rem; width: 50%">
+                    <img src="${producto.image}" class="card-img-top my-2 mx-auto" alt="Imagen del producto" style="height: 17rem; width: 75%">
                     <hr>
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">${producto.title}</h5>
