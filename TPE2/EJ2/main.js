@@ -42,6 +42,5 @@ const recorrer_arreglo = () => {
     document.getElementById('criptomonedas').innerHTML = lista_criptomonedas.join('')
 }
 
-
 document.getElementById('btn_mostrar').addEventListener('click', mostrar)
 document.getElementById('btn_mostrar_arreglo').addEventListener('click', recorrer_arreglo)
