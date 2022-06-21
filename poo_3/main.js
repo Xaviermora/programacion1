@@ -19,3 +19,21 @@ function listar(){
 }
 
 listar()
+
+function eliminar(){
+    let cliente = new Cliente()
+
+    const index = localStorage.getItem('index')
+
+    cliente.eliminar_cliente(index)
+}
+
+document.getElementById('btn-eliminar').addEventListener('click', eliminar)
+
+function actualizar(){
+    let cliente = new Cliente()
+
+    const index = localStorage.getItem('index_update')
+
+    cliente.actualizar_cliente(index)
+}
