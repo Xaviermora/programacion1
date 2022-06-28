@@ -26,6 +26,7 @@ export default class Cliente {
         }
 
         this.obtener_clientes()
+        this.vaciar_formulario()
     }
 
     obtener_clientes(){
@@ -72,5 +73,10 @@ export default class Cliente {
         localStorage.setItem('listado_clientes', JSON.stringify(lista_clientes))
         
         this.obtener_clientes()
+        this.vaciar_formulario()
+    }
+
+    vaciar_formulario(){
+        document.getElementById('form_cliente').reset()
     }
 }

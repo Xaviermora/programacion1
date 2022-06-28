@@ -19,22 +19,25 @@
     <div class="container mt-3">
         <div class="row">
             <div class="col-lg-4">
-                <div class="mb-3">
-                    <label class="form-label">Nombre</label>
-                    <input id="inp_nombre" type="text" class="form-control">
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Apellido</label>
-                    <input id="inp_apellido" type="text" class="form-control">
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">DNI</label>
-                    <input id="inp_dni" type="number" class="form-control">
-                </div>
-
-                <button id="btn_guardar" class="btn btn-primary">Guardar</button>
+                <form id="form_cliente">
+                    <div class="mb-3">
+                        <label class="form-label">Nombre</label>
+                        <input id="inp_nombre" type="text" class="form-control">
+                    </div>
+    
+                    <div class="mb-3">
+                        <label class="form-label">Apellido</label>
+                        <input id="inp_apellido" type="text" class="form-control">
+                    </div>
+    
+                    <div class="mb-3">
+                        <label class="form-label">DNI</label>
+                        <input id="inp_dni" type="number" class="form-control">
+                    </div>
+    
+                    <button id="btn_guardar" class="btn btn-primary">Guardar</button>
+                    <button id="btn_actualizar" class="btn btn-success d-none">Actualizar</button>
+                </form>
             </div>
 
             <div class="col-lg-8">
@@ -67,7 +70,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button id="btn-eliminar" type="button" class="btn btn-danger">Eliminar</button>
+                            <button id="btn_eliminar" type="button" class="btn btn-danger">Eliminar</button>
                         </div>
                     </div>
                 </div>
