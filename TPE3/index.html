@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-info">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">f</a>
+        </div>
+    </nav>
+
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-lg-4 mb-3">
+                <div class="mb-3">
+                    <h3>Subir producto</h3>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input id="inp_nombre" class="form-control" type="text" placeholder="Nombre">
+                    <label>Nombre</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input id="inp_precio" class="form-control" type="number" placeholder="Precio">
+                    <label>Precio</label>
+                </div>
+                
+                <div class="form-floating mb-3">
+                    <input id="inp_imagen" class="form-control" type="text" placeholder="URL de imagen">
+                    <label>Imagen (URL)</label>
+                </div>
+                
+                <div class="form-floating mb-3">
+                    <input id="inp_descripcion" class="form-control" type="text" placeholder="Descripción">
+                    <label>Descripción</label>
+                </div>
+
+                <button id="btn_subir" class="btn btn-primary">Subir</button>
+            </div>
+
+            <div class="col-lg-8">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td>N°</td>
+                            <td>Nombre</td>
+                            <td>Precio</td>
+                            <td>Imagen</td>
+                            <td>Descripción</td>
+                            <td>Acciones</td>
+                        </tr>
+                    </thead>
+                
+                    <tbody id="tbl_body">
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirmar</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¿Seguro qué quiere eliminar este producto?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button id="btn_eliminar" type="button" class="btn btn-danger" data-bs-dismiss="modal">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="bootstrap.bundle.min.js"></script>
+    <script src="main.js" type="module"></script>
+    <script src="auxiliares.js"></script>
+</body>
+</html>
