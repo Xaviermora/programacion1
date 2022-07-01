@@ -4,23 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sistema de pedidos</title>
     <link rel="stylesheet" href="bootstrap.min.css">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-info">
+    <nav class="navbar navbar-dark bg-info w-100">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">f</a>
+          <a class="navbar-brand" href="#">Pedidos</a>
         </div>
     </nav>
 
     <div class="container mt-3">
         <div class="row">
             <div class="col-lg-4 mb-3">
-                <form id="form_producto">
+                <form action="" id="form_producto">
                     <div class="mb-3">
                         <h3>Subir producto</h3>
                     </div>
@@ -31,7 +31,7 @@
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input id="inp_precio" class="form-control" type="number" placeholder="Precio">
+                        <input id="inp_precio" class="form-control" step="0.01" type="number" placeholder="Precio">
                         <label>Precio</label>
                     </div>
                     
@@ -46,6 +46,8 @@
                     </div>
 
                     <button id="btn_subir" class="btn btn-primary">Subir</button>
+                    <button id="btn_actualizar" class="btn btn-success d-none">Actualizar</button>
+                    <button id="btn_cancelar" class="btn btn-secondary d-none">Cancelar</button>
                 </form>
             </div>
 

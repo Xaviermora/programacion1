@@ -49,7 +49,7 @@ export default class Producto{
                     <td class="text-break">${producto.descripcion}</td>
                     <td>
                         <div class="d-grid gap-2 d-md-block">
-                            <button class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></button>
+                            <button onclick="almacenar_indice_actualizar(${index})" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></button>
                             <button onclick="almacenar_indice_eliminar(${index})" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-trash"></i></button>
                         </div>
                     </td>
@@ -70,10 +70,21 @@ export default class Producto{
         localStorage.setItem('productos', JSON.stringify(lista_productos))
 
         this.obtener_productos()
+        this.vaciar_formulario()
     }
 
-    editar_producto(){
-        
+    actualizar_producto(index){
+        let lista_productos = JSON.parse(localStorage.getItem('productos'))
+
+        lista_productos[index].nombre = document.getElementById('inp_nombre').value
+        lista_productos[index].precio = parseFloat(document.getElementById('inp_precio').value)
+        lista_productos[index].imagen = document.getElementById('inp_imagen').value
+        lista_productos[index].descripcion = document.getElementById('inp_descripcion').value
+
+        localStorage.setItem('productos', JSON.stringify(lista_productos))
+
+        this.obtener_productos()
+        this.vaciar_formulario()
     }
 
     vaciar_formulario(){
