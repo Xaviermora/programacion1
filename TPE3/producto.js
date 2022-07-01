@@ -29,6 +29,7 @@ export default class Producto{
         }
 
         this.obtener_productos()
+        this.vaciar_formulario()
     }
 
     obtener_productos(){
@@ -38,15 +39,19 @@ export default class Producto{
 
         lista_productos.forEach((producto, index) => {
             let fila = `
-                <tr>
+                <tr class="align-middle">
                     <td>${index}</td>
-                    <td>${producto.nombre}</td>
+                    <td class="text-break">${producto.nombre}</td>
                     <td>$${producto.precio}</td>
-                    <td>${producto.imagen}</td>
-                    <td>${producto.descripcion}</td>
                     <td>
-                        <button class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></button>
-                        <button onclick="almacenar_indice_eliminar(${index})" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-trash"></i></button>
+                        <img class="img-fluid" style="width: 3.5rem; height: 3rem;" src="${producto.imagen}">
+                    </td>
+                    <td class="text-break">${producto.descripcion}</td>
+                    <td>
+                        <div class="d-grid gap-2 d-md-block">
+                            <button class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></button>
+                            <button onclick="almacenar_indice_eliminar(${index})" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-trash"></i></button>
+                        </div>
                     </td>
                 </tr>
             `
@@ -69,5 +74,9 @@ export default class Producto{
 
     editar_producto(){
         
+    }
+
+    vaciar_formulario(){
+        document.getElementById('form_producto').reset()
     }
 }
