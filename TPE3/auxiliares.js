@@ -16,3 +16,7 @@ function almacenar_indice_actualizar(index){
 
     localStorage.setItem('index_actualizar', index)
 }
+
+function almacenar_indice_encargo(index){
+    localStorage.setItem('index_encargo', index)
+}

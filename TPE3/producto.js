@@ -36,7 +36,7 @@ export default class Producto{
         let lista_productos = JSON.parse(localStorage.getItem('productos'))
 
         let filas_productos = []
-
+        
         lista_productos.forEach((producto, index) => {
             let fila = `
                 <tr class="align-middle">
@@ -55,12 +55,12 @@ export default class Producto{
                     </td>
                 </tr>
             `
-
+            
             filas_productos.push(fila)
         });
 
         document.getElementById('tbl_body').innerHTML = filas_productos.join('')
-    }
+    }  
 
     eliminar_producto(index){
         let lista_productos = JSON.parse(localStorage.getItem('productos'))
