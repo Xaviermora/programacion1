@@ -11,11 +11,11 @@ export default class Encargo{
                 <div class="card col-lg-4 me-2">
                     <img src="${producto.imagen}" class="card-img-top w-100 h-50" alt="...">
                     <hr class="m-0">
-                    <div class="card-body">
+                    <div class="card-body d-flex flex-column">
                         <h5 class="card-title">${producto.nombre}</h5>
                         <p class="card-text">$${producto.precio}</p>
                         <p class="card-text">${producto.descripcion}</p>
-                        <a onclick="almacenar_indice_encargo(${index})" href="#" class="btn btn-primary btn_agregar">Agregar</a>
+                        <a onclick="almacenar_indice_encargo(${index})" href="#" class="btn btn-primary btn_agregar mt-auto w-50">Agregar</a>
                     </div>
                 </div>
             `
@@ -28,9 +28,8 @@ export default class Encargo{
 
     agregar_encargo(index){
         let lista_productos = JSON.parse(localStorage.getItem('productos'))
-
+        
         let nuevo_encargo = {
-            id: index,
             nombre: lista_productos[index].nombre,
             cantidad: 1,
             precio: lista_productos[index].precio
@@ -38,12 +37,8 @@ export default class Encargo{
 
         if('encargos' in localStorage){
             let lista_encargos = JSON.parse(localStorage.getItem('encargos'))
-        
-            if(lista_encargos.some(encargo => encargo.nombre == nuevo_encargo.nombre)){
-                const index = lista_encargos.findIndex(x => x.id == nuevo_encargo.id)
 
-                lista_encargos[index].cantidad += 1
-            }else{
+            if(!lista_encargos.some(encargo => encargo.nombre == nuevo_encargo.nombre)){
                 lista_encargos.push(nuevo_encargo)
             }
 
@@ -63,19 +58,47 @@ export default class Encargo{
         let lista_encargos = JSON.parse(localStorage.getItem('encargos'))
 
         let filas_encargos = []
+        let precio_total = 0
 
-        lista_encargos.forEach(encargo => {
+        lista_encargos.forEach((encargo, index) => {
             let fila = `
                 <tr>
                     <td>${encargo.nombre}</td>
-                    <td>${encargo.cantidad}</td>
+                    <td>
+                        <input type="number" id="inp_encargo_${index}" class="form-control shadow-none w-75" min="1" value="${encargo.cantidad}" required>
+                    </td>
                     <td>$${encargo.precio}</td>
                 </tr>
             `
 
             filas_encargos.push(fila)
+            precio_total += encargo.precio
         });
 
+        let fila_total = `
+            <tr>
+                <td>Total</td>
+                <td></td>
+                <td>$${precio_total}</td>
+            </tr>
+        `
+
+        filas_encargos.push(fila_total)
+
         document.getElementById('tbl_body').innerHTML = filas_encargos.join('')
+    }
+    
+    modificar_cantidad_encargo(){
+        let lista_encargos = JSON.parse(localStorage.getItem('encargos'))
+        
+        lista_encargos.forEach((encargo, index) => {
+            lista_encargos[index].cantidad = document.getElementById(`inp_encargo_${index}`).value
+        });
+
+        localStorage.setItem('encargos', JSON.stringify(lista_encargos))
+    }
+    
+    finalizar_pedido(){
+        this.modificar_cantidad_encargo()
     }
 }

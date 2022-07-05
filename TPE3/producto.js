@@ -61,7 +61,7 @@ export default class Producto{
 
         document.getElementById('tbl_body').innerHTML = filas_productos.join('')
     }  
-
+    
     eliminar_producto(index){
         let lista_productos = JSON.parse(localStorage.getItem('productos'))
 

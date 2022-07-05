@@ -18,3 +18,11 @@ function agregar(){
 for (const btn of document.getElementsByClassName('btn_agregar')) {
     btn.addEventListener('click', agregar)
 }
+
+function pedido(){
+    let encargo = new Encargo()
+
+    encargo.finalizar_pedido()
+}
+
+document.getElementById('btn_pedido').addEventListener('click', pedido)
