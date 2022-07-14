@@ -24,7 +24,7 @@ listar()
 function eliminar(){
     let producto = new Producto()
 
-    const index = localStorage.getItem('index_eliminar')
+    const index = localStorage.getItem('index_eliminar_producto')
 
     producto.eliminar_producto(index)
 
@@ -38,7 +38,7 @@ document.getElementById('btn_eliminar').addEventListener('click', eliminar)
 function actualizar(){
     let producto = new Producto()
     
-    const index = localStorage.getItem('index_actualizar')
+    const index = localStorage.getItem('index_actualizar_producto')
 
     producto.actualizar_producto(index)
 }

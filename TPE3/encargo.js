@@ -8,7 +8,7 @@ export default class Encargo{
 
         lista_productos.forEach((producto, index) => {
             let carta = `
-                <div class="col-lg-4 col-md-6 col-12 mb-4">
+                <div class="col-md-4 col-sm-6 col-9 mx-sm-0 mx-auto mb-4">
                     <div class="card h-100">
                         <div class="p-2">
                             <img src="${producto.imagen}" class="card-img-top" style="height: 15rem;" alt="Imagen del producto">
@@ -16,9 +16,9 @@ export default class Encargo{
                         <hr class="m-0">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">${producto.nombre}</h5>
-                            <p class="card-text">$${producto.precio}</p>
+                            <p class="card-text">$${(producto.precio).toLocaleString()}</p>
                             <p class="card-text">${producto.descripcion}</p>
-                            <div class="col-6 mt-auto">
+                            <div class="col-8 mt-auto">
                                 <a onclick="almacenar_indice_encargo(${index})" href="#" class="btn btn-primary btn_agregar w-100">Agregar</a>
                             </div>
                         </div>
@@ -36,6 +36,7 @@ export default class Encargo{
         let lista_productos = JSON.parse(localStorage.getItem('productos'))
         
         let nuevo_encargo = {
+            id: index,
             nombre: lista_productos[index].nombre,
             cantidad: 1,
             precio: lista_productos[index].precio
@@ -44,11 +45,13 @@ export default class Encargo{
         if('encargos' in localStorage){
             let lista_encargos = JSON.parse(localStorage.getItem('encargos'))
             
+            // Si el encargo que se quiere agregar no existe, agregarlo, sino no hacer nada para que no se repitan  
             if(!lista_encargos.some(encargo => encargo.nombre == nuevo_encargo.nombre)){
                 lista_encargos.push(nuevo_encargo)
+                
+                localStorage.setItem('encargos', JSON.stringify(lista_encargos))
             }
 
-            localStorage.setItem('encargos', JSON.stringify(lista_encargos))
         }else{
             let encargos = []
 
@@ -70,12 +73,12 @@ export default class Encargo{
             
             lista_encargos.forEach((encargo, index) => {
                 let fila = `
-                    <tr>
+                <tr>
                         <td>${encargo.nombre}</td>
                         <td>
                             <input type="number" id="inp_encargo_${index}" class="inps_cantidad form-control shadow-none w-75" min="1" value="${encargo.cantidad}" required>
                         </td>
-                        <td>$${encargo.precio}</td>
+                        <td>$${(encargo.precio).toLocaleString()}</td>
                         <td><button onclick="almacenar_indice_eliminar_encargo(${index})" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-trash"></i></button></td>
                     </tr>
                 `
@@ -88,7 +91,7 @@ export default class Encargo{
                 <tr>
                     <td>Total</td>
                     <td></td>
-                    <td>$${precio_total}</td>
+                    <td>$${(precio_total).toLocaleString()}</td>
                     <td></td>
                 </tr>
             `
@@ -99,29 +102,35 @@ export default class Encargo{
             
             for (const inp of document.getElementsByClassName('inps_cantidad')) {
                 inp.addEventListener('change', () => {
-                    this.modificar_cantidad_y_precio_encargo()
+                    this.actualizar_encargo()
+                    this.obtener_encargos()
                 })
             }
         }
     }
             
-    modificar_cantidad_y_precio_encargo(){
+    actualizar_encargo(){
         let lista_encargos = JSON.parse(localStorage.getItem('encargos'))
         let lista_productos = JSON.parse(localStorage.getItem('productos'))
-        
+        let index_actualizar_producto = localStorage.getItem('index_actualizar_producto')
+
         lista_encargos.forEach((encargo, index) => {
-            let cant_encargo = parseInt(document.getElementById(`inp_encargo_${index}`).value)
+            if(window.location.pathname == '/TPE3/index_2.html'){
+                let cant_encargo = parseInt(document.getElementById(`inp_encargo_${index}`).value)
+                let index_producto = lista_encargos[index].id
 
-            let index_producto = lista_productos.findIndex(producto => producto.nombre == encargo.nombre)
-
-            lista_encargos[index].cantidad = cant_encargo
-
-            lista_encargos[index].precio = lista_productos[index_producto].precio * cant_encargo
+                lista_encargos[index].cantidad = cant_encargo
+                lista_encargos[index].precio = lista_productos[index_producto].precio * cant_encargo
+            }else{
+                // En caso de que se cambie el nombre del producto actualizarlo si está en los encargos.
+                if(index_actualizar_producto == lista_encargos[index].id){ 
+                    lista_encargos[index].nombre = lista_productos[index_actualizar_producto].nombre
+                    lista_encargos[index].precio = lista_productos[index_actualizar_producto].precio
+                }
+            }
         });
 
         localStorage.setItem('encargos', JSON.stringify(lista_encargos))
-
-        this.obtener_encargos()
     }
     
     eliminar_encargo(index){
@@ -136,6 +145,13 @@ export default class Encargo{
         if('pedidos' in localStorage){
             let lista_pedidos = JSON.parse(localStorage.getItem('pedidos'))
             let lista_encargos = JSON.parse(localStorage.getItem('encargos'))
+            let precio_total = 0
+
+            lista_encargos.forEach(encargo => {
+                precio_total += encargo.precio
+            });
+
+            lista_encargos.push({precio_total: precio_total})
 
             lista_pedidos.push(lista_encargos)
 
@@ -146,8 +162,14 @@ export default class Encargo{
             this.obtener_encargos()
         }else{
             let pedidos = []
-
             let lista_encargos = JSON.parse(localStorage.getItem('encargos'))
+            let precio_total = 0
+
+            lista_encargos.forEach(encargo => {
+                precio_total += encargo.precio
+            });
+
+            lista_encargos.push({precio_total: precio_total})
 
             pedidos.push(lista_encargos)
 

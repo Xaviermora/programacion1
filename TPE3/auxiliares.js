@@ -1,8 +1,8 @@
-function almacenar_indice_eliminar(index){
-    localStorage.setItem('index_eliminar', index)
+function almacenar_indice_eliminar_producto(index){
+    localStorage.setItem('index_eliminar_producto', index)
 }
 
-function almacenar_indice_actualizar(index){
+function almacenar_indice_actualizar_producto(index){
     document.getElementById('btn_subir').classList.add('d-none')
     document.getElementById('btn_actualizar').classList.remove('d-none')
     document.getElementById('btn_cancelar').classList.remove('d-none')
@@ -14,7 +14,7 @@ function almacenar_indice_actualizar(index){
     document.getElementById('inp_imagen').value = lista_productos[index].imagen
     document.getElementById('inp_descripcion').value = lista_productos[index].descripcion
 
-    localStorage.setItem('index_actualizar', index)
+    localStorage.setItem('index_actualizar_producto', index)
 }
 
 function almacenar_indice_encargo(index){

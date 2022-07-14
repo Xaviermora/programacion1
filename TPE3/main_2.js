@@ -1,11 +1,12 @@
 import Encargo from "./encargo.js";
 
 function listar(){
-    let encargo = new Encargo()
+    let encargo = new Encargo()    
 
     encargo.obtener_productos()
     encargo.obtener_encargos()
-    
+    encargo.actualizar_encargo()
+    encargo.obtener_encargos()
 }
 
 listar()
@@ -15,7 +16,6 @@ function agregar(){
     const index = localStorage.getItem('index_encargo')
     
     encargo.agregar_encargo(index)
-
 }
 
 for (const btn of document.getElementsByClassName('btn_agregar')) {
@@ -34,8 +34,8 @@ function eliminar(){
 document.getElementById('btn_eliminar').addEventListener('click', eliminar)
 
 function pedido(){
-    let encargo = new Encargo()
-    
+    let encargo = new Encargo()    
+
     encargo.finalizar_pedido()
 }
 
