@@ -6,25 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de predidos</title>
 
-    <link rel="stylesheet" href="index.css">
-
+    
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="bootstrap.min.css">
-
+    
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
+          <a class="navbar-brand text-white" href="#">Pedidos</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
               <a class="nav-link" href="index.html">Administrar Productos</a>
-              <a class="nav-link" href="index_2.html">Comprar</a>
+              <a class="nav-link active" aria-current="page" href="index_2.html">Comprar</a>
             </div>
           </div>
         </div>
@@ -39,25 +41,27 @@
             </div>
 
             <div class="col-lg-4 col-md-12 mb-3 order-lg-last order-first">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <td>Encargo</td>
-                            <td id="cantidad">Cantidad</td>
-                            <td>Precio</td>
-                            <td></td>
-                        </tr>
-                    </thead>
-
-                    <tbody id="tbl_body">
-                        <tr>
-                            <td>Total</td>
-                            <td></td>
-                            <td>$0</td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="table-responsive rounded">
+                    <table class="table bg-white">
+                        <thead>
+                            <tr>
+                                <td>Encargo</td>
+                                <td id="cantidad">Cantidad</td>
+                                <td>Precio</td>
+                                <td></td>
+                            </tr>
+                        </thead>
+    
+                        <tbody id="tbl_body">
+                            <tr>
+                                <td>Total</td>
+                                <td></td>
+                                <td>$0</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
                 <button id="btn_pedido" class="btn btn-primary">Finalizar pedido</button>
             </div>

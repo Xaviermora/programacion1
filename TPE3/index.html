@@ -11,17 +11,20 @@
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
+          <a class="navbar-brand text-white" href="#">Pedidos</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <a class="nav-link" href="index.html">Administrar Productos</a>
+              <a class="nav-link active" aria-current="page" href="index.html">Administrar Productos</a>
               <a class="nav-link" href="index_2.html">Comprar</a>
             </div>
           </div>
@@ -62,16 +65,16 @@
                 </form>
             </div>
 
-            <div class="col-lg-8">
-                <table class="table">
-                    <thead>
+            <div class="col-lg-8 table-responsive">
+                <table class="table bg-white rounded">
+                    <thead class="rounded-top">
                         <tr>
                             <th>N°</th>
                             <th>Nombre</th>
                             <th>Precio</th>
                             <th>Imagen</th>
                             <th>Descripción</th>
-                            <th style="width: 5rem;">Acciones</th>
+                            <th style="width: 5rem;"></th>
                         </tr>
                     </thead>
                 

@@ -1,3 +1,19 @@
+body{
+    background-color: rgb(235, 235, 235);
+}
+
+nav{
+    background-color: rgb(15, 159, 196);
+}
+
+.nav-link, .nav-link:hover{
+    color: rgb(231, 231, 231);
+}
+
+.active, .active:hover{
+    color: white;
+}
+
 .card:hover{
     box-shadow: 0 0 1rem rgba(0, 0, 0, .15);
 }

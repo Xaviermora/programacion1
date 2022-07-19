@@ -22,7 +22,6 @@ for (const btn of document.getElementsByClassName('btn_agregar')) {
     btn.addEventListener('click', agregar)
 }
 
-// Eliminar encargo
 function eliminar(){
     let encargo = new Encargo()
     const index = localStorage.getItem('index_eliminar_encargo')
